@@ -1,0 +1,46 @@
+﻿@model IEnumerable<lab07_3.Controllers.Book>
+
+@{
+    ViewBag.Title = "TieuThuyet";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Tieu Thuyet</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Code)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Author)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Importer_date)
+        </th>
+        
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Code)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Author)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Importer_date)
+        </td>
+        
+    </tr>
+}
+
+</table>

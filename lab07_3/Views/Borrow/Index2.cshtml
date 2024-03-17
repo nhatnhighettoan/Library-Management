@@ -1,0 +1,21 @@
+﻿@model IEnumerable<lab07_3.Controllers.Borrow>
+
+@{
+    ViewBag.Title = "Index2";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index2</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    
+
+@foreach(var item in ViewData["Books"] as List<lab07_3.Controllers.Book>)
+            {
+                <td>@item.Id</td>
+            }
+
+</table>

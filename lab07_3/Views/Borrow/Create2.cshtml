@@ -1,0 +1,24 @@
+﻿@using lab07_3.Controllers
+
+@{
+    ViewBag.Title = "Create2";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Create2</h2>
+
+<table>
+    <tr>
+        <th>Person ID</th>
+        <th>Name</th>
+    </tr>
+    @foreach(var item in ViewBag.person)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.Name</td>
+                    <td></td>
+                </tr>
+            }
+</table>
+

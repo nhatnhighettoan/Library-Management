@@ -1,0 +1,78 @@
+﻿@model IEnumerable<lab07_3.Controllers.Borrow>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Borrow Management</h2>
+
+@using (Html.BeginForm())
+{
+    <b>Tim kiem: </b> <text>Person RollNo</text> @Html.TextBox("PersonRollNo")
+    <input type="submit" name="submit" value="Tim" />
+
+}
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Borrow_date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Expire_date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Person.RollNo)
+        </th>
+        <th>
+            Book Title
+        </th>
+        <th>
+            Book ID
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Borrow_date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Expire_date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Person.RollNo)
+            </td>
+            <td>
+                @foreach (var book in item.Books)
+                {
+
+                    @Html.DisplayFor(modelbook => book.Title)
+                    <br />
+                }
+            </td>
+            <td>
+                @foreach (var book in item.Books)
+                {
+
+                    @Html.DisplayFor(modelbook => book.Id)
+                    <br />
+                }
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+            </td>
+
+        </tr>
+    }
+
+</table>
+-
